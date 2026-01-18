@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме - Носик Дмитро</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Бібліотека для реального скачування PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .text-brand-red { color: #b91c1c; }
+        .bg-brand-red { background-color: #b91c1c; }
+
+        /* Стилі для PDF рендеру */
+        #resume-content {
+            background-color: white;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; padding: 0; }
+            .shadow-2xl { box-shadow: none !important; }
+            .max-w-5xl { max-width: 100% !important; margin: 0 !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 leading-relaxed">
+
+    <!-- КНОПКИ УПРАВЛІННЯ -->
+    <div class="max-w-5xl mx-auto mt-8 flex justify-end gap-3 px-4 no-print">
+        <button onclick="downloadPDF()" class="bg-brand-red hover:bg-red-800 text-white px-5 py-2 rounded-sm text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2 shadow-md">
+            <i class="fas fa-file-download"></i> Скачати PDF
+        </button>
+        <button onclick="window.print()" class="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-sm text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2 shadow-md">
+            <i class="fas fa-print"></i> Друк
+        </button>
+    </div>
+
+    <!-- КОНТЕНТ РЕЗЮМЕ -->
+    <div id="resume-content" class="max-w-5xl mx-auto my-12 bg-white shadow-2xl flex flex-col md:flex-row overflow-hidden border-t-8 border-brand-red">
+        
+        <!-- SIDEBAR -->
+        <div class="w-full md:w-1/3 bg-gray-50 p-8 border-r border-gray-100">
+            <div class="mb-10">
+                <h1 class="text-3xl font-bold uppercase tracking-tighter mb-1">Носик <span class="text-brand-red">Дмитро</span></h1>
+                <p class="text-[10px] font-sans font-bold uppercase tracking-widest text-gray-500">Веб-дизайнер | Публіцист | Креатор</p>
+            </div>
+
+            <!-- CONTACT -->
+            <section class="mb-10">
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-4 border-b pb-1 font-serif italic">Контакти</h2>
+                <div class="space-y-3 font-sans">
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="fas fa-phone text-brand-red w-4 text-center"></i>
+                        <span class="leading-none text-sm">+380 66 303 3806</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="fas fa-envelope text-brand-red w-4 text-center"></i>
+                        <span class="leading-none text-sm">dmytronosykavva@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                        <i class="fas fa-location-dot text-brand-red w-4 text-center"></i>
+                        <span class="leading-none text-sm">Нікополь, Україна</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CORE SKILLS -->
+            <section class="mb-10">
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-4 border-b pb-1 font-serif italic">Навички</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h4 class="font-sans font-bold text-[11px] uppercase mb-2 text-gray-700 tracking-tight">Technical Skills</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">Web Design</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">HTML/CSS</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">UI/UX</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">Capture One</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-sans font-bold text-[11px] uppercase mb-2 text-gray-700 tracking-tight">Professional</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">VIP Sales</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">Admin</span>
+                            <span class="px-2 py-1 bg-white border border-gray-200 text-[9px] rounded-sm font-sans uppercase font-bold">Negotiations</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LANGUAGES -->
+            <section class="mb-10">
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-4 border-b pb-1 font-serif italic">Мови</h2>
+                <div class="space-y-4 font-serif text-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold font-sans">Українська</span>
+                        <span class="text-[9px] text-gray-400 uppercase font-bold font-sans tracking-widest">Native</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold font-sans">Англійська</span>
+                        <span class="text-[9px] text-brand-red uppercase font-bold font-sans">B2+ (Upper)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold font-sans">Російська</span>
+                        <span class="text-[9px] text-gray-400 uppercase font-bold font-sans tracking-widest">Proficient</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="w-full md:w-2/3 p-10">
+            
+            <!-- SUMMARY -->
+            <section class="mb-10">
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-4 italic">Профіль</h2>
+                <p class="font-serif text-lg leading-relaxed italic text-gray-700 mb-4">
+                    Креативний фахівець із досвідом у сфері дизайну, VIP-комунікацій та стратегічного управління. Моя експертиза базується на поєднанні візуальної естетики та глибокого розуміння клієнтського сервісу преміум-класу.
+                </p>
+                <div class="text-[11px] font-sans text-gray-600 leading-loose uppercase tracking-wider border-l-2 border-brand-red pl-4 py-1">
+                    Маю значний досвід роботи в секторі елітної парфумерії (Aroma Eden). Спеціалізуюся на адмініструванні процесів, прямій взаємодії з постачальниками та створенні ідеального споживчого досвіду.
+                </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="mb-10">
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-6 border-b pb-1 font-serif italic">Досвід роботи</h2>
+                
+                <div class="space-y-8">
+                    <!-- Aroma Eden -->
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-sans font-bold text-sm uppercase">Менеджер з комунікацій та VIP-продажів</h3>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2024 — 2025</span>
+                        </div>
+                        <h4 class="font-serif italic text-xs text-brand-red mb-2">Aroma Eden (Elite Perfumery)</h4>
+                        <ul class="text-[11px] space-y-1 font-serif text-gray-600 list-disc list-inside">
+                            <li>Персоналізований сервіс для VIP-клієнтів: супровід угоди та робота з лояльністю.</li>
+                            <li>Адміністрування процесів, робота з базою постачальників та контроль асортименту.</li>
+                            <li>Впровадження стандартів психології продажів та створення атмосфери комфорту.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mon Mothma -->
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-sans font-bold text-sm uppercase">Засновник & Lead Designer</h3>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2025 — Present</span>
+                        </div>
+                        <h4 class="font-serif italic text-xs text-brand-red mb-2">mon mothma design (Creative Studio)</h4>
+                        <ul class="text-[11px] space-y-1 font-serif text-gray-600 list-disc list-inside">
+                            <li>Розробка бренд-айдентики, веб-інтерфейсів та UI/UX прототипів.</li>
+                            <li>Організація професійних фотозйомок "під ключ" та сервіс преміального фотодруку.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Freelance -->
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-sans font-bold text-sm uppercase">Freelance Web & Graphic Designer</h3>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2023 — Present</span>
+                        </div>
+                        <h4 class="font-serif italic text-xs text-gray-500 mb-2">Незалежна практика</h4>
+                        <p class="text-[11px] font-serif text-gray-600">Розробка візуального контенту, рекламних матеріалів та UI/UX рішень для цифрових платформ.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section class="mb-10">
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-6 border-b pb-1 font-serif italic">Освіта</h2>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-sans font-bold text-[11px] uppercase">ХНУ імені В. Н. Каразіна</h3>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2025 — 2029</span>
+                        </div>
+                        <p class="text-[11px] font-serif italic text-gray-500">Факультет міжнародних відносин</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-sans font-bold text-[11px] uppercase">Ampli Company</h3>
+                        </div>
+                        <p class="text-[11px] font-serif italic text-brand-red font-bold uppercase tracking-tighter">Web Design Professional Certificate</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ACHIEVEMENTS -->
+            <section>
+                <h2 class="font-sans font-bold text-xs uppercase tracking-widest text-gray-400 mb-4 border-b pb-1 font-serif italic">Досягнення</h2>
+                <ul class="text-[10px] font-sans space-y-2 text-gray-600 uppercase tracking-tight font-bold">
+                    <li class="flex gap-2"><i class="fas fa-certificate text-brand-red"></i> Член МАН України (Наукові публікації НАНУ)</li>
+                    <li class="flex gap-2"><i class="fas fa-award text-brand-red"></i> ТОП-1000 есеїстів України</li>
+                    <li class="flex gap-2"><i class="fas fa-star text-brand-red"></i> Переможець STEM-конкурсів (Астрономія, Інженерія)</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('resume-content');
+            const opt = {
+                margin:       0,
+                filename:     'Resume_Nosyk_Dmytro.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Виконуємо конвертацію та скачування
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+
+</body>
+</html>
